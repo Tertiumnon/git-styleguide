@@ -19,38 +19,6 @@ master
   |_ NP-2 - "local" environment
 ```
 
-#### After hotfix
-
-Refresh `develop`:
-
-```bash
-git checkout master
-git pull
-git checkout develop
-git merge master
-git push
-```
-
-Refresh next `release` (if exists):
-
-```bash
-git checkout develop
-git pull
-git checkout release/0.2.0
-git merge release/0.2.0
-git push
-```
-
-Refresh dev branch `NP-3` (if exists):
-
-```bash
-git checkout release/0.2.0
-git pull
-git checkout NP-3
-git rebase origin/release/0.2.0 # or merge
-git push -f
-```
-
 ## Commits
 
 - build: Build related changes (eg: npm related/ adding external dependencies)
@@ -87,11 +55,13 @@ z - hotfix - 0.0.1 - Backward compatible bug fixes
 
 [About semantic versioning](https://docs.npmjs.com/about-semantic-versioning)
 
-## Release tags
+## Release managment
 
-Create a tag after merging `develop` into `master` branch. For example you need to create a tag `v1.1.1`.
+After merging `develop` into `master` release tag must be created.
 
-Only release engineer can create tags.
+### Release tags
+
+For example you need to create a tag `v1.1.1`. Don't forget prefix `v`.
 
 ```bash
 git checkout master
@@ -100,4 +70,40 @@ git tag v1.1.1 {{commit}}
 git push --tags
 ```
 
-Or create the tag using UI.
+Or create the tag using UI and then:
+
+```bash
+git pull --tags
+```
+
+### After merging into master
+
+Refresh `develop`:
+
+```bash
+git checkout master
+git pull
+git checkout develop
+git merge master
+git push
+```
+
+Refresh next `release` (if exists):
+
+```bash
+git checkout develop
+git pull
+git checkout release/0.2.0
+git merge release/0.2.0
+git push
+```
+
+Refresh dev branch `NP-3` (if exists):
+
+```bash
+git checkout release/0.2.0
+git pull
+git checkout NP-3
+git rebase origin/release/0.2.0 # or merge
+git push -f
+```
