@@ -9,7 +9,69 @@ master - "production" environment
     |_ NP-1 - "local" environment
 ```
 
-All mergings must be made via pull requests.
+All mergings must be made via pull requests!
+
+### Hotfix
+
+```text
+master
+|_ hotfix/0.1.1 - no environment
+  |_ NP-2 - "local" environment
+```
+
+#### After hotfix
+
+Refresh `develop`:
+
+```bash
+git checkout master
+git pull
+git checkout develop
+git merge master
+git push
+```
+
+Refresh next `release` (if exists):
+
+```bash
+git checkout develop
+git pull
+git checkout release/0.2.0
+git merge release/0.2.0
+git push
+```
+
+Refresh dev branch `NP-3` (if exists):
+
+```bash
+git checkout release/0.2.0
+git pull
+git checkout NP-3
+git rebase origin/release/0.2.0 # or merge
+git push -f
+```
+
+## Commits
+
+- build: Build related changes (eg: npm related/ adding external dependencies)
+- chore: A code change that external user won't see (eg: change to .gitignore file or .prettierrc file)
+- feat: A new feature
+- fix: A bug fix
+- docs: Documentation related changes
+- refactor: A code that neither fix bug nor adds a feature. (eg: You can use this when there is semantic changes like renaming a variable/ function name)
+- perf: A code that improves performance
+- style: A code that is related to styling
+- test: Adding new test or making changes to existing test
+
+### Examples
+
+[Angular](https://github.com/angular/angular/commits/master)
+
+### References
+
+[Conventional commits](https://www.conventionalcommits.org/en/v1.0.0)
+
+[Commitizen - tool for commits](https://commitizen-tools.github.io/commitizen)
 
 ## Releases
 
@@ -25,25 +87,7 @@ z - hotfix - 0.0.1 - Backward compatible bug fixes
 
 [About semantic versioning](https://docs.npmjs.com/about-semantic-versioning)
 
-## Commits
-
-- build: Build related changes (eg: npm related/ adding external dependencies)
-- chore: A code change that external user won't see (eg: change to .gitignore file or .prettierrc file)
-- feat: A new feature
-- fix: A bug fix
-- docs: Documentation related changes
-- refactor: A code that neither fix bug nor adds a feature. (eg: You can use this when there is semantic changes like renaming a variable/ function name)
-- perf: A code that improves performance
-- style: A code that is related to styling
-- test: Adding new test or making changes to existing test
-
-### References
-
-[Conventional commits](https://www.conventionalcommits.org/en/v1.0.0)
-
-[Commitizen - tool for commits](https://commitizen-tools.github.io/commitizen)
-
-## Release tags (release management)
+## Release tags
 
 Create a tag after merging `develop` into `master` branch. For example you need to create a tag `v1.1.1`.
 
