@@ -15,9 +15,11 @@ All mergings must be made via pull requests.
 
 x.y.z - 1.1.1
 
+```text
 x - major - 1.0.0 - Changes that break backward compatibility
 y - minor - 0.1.0 - Backward compatible new features
 z - hotfix - 0.0.1 - Backward compatible bug fixes
+```
 
 ### References
 
