@@ -1,4 +1,4 @@
-# Git Styleguide
+# Git Style Guide
 
 ## Branches
 
