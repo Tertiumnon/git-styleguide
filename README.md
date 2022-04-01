@@ -31,6 +31,12 @@ master
 - style: A code that is related to styling
 - test: Adding new test or making changes to existing test
 
+It's preffered to use special tools like Commitizen. But if you want to create commits manually there is an example:
+
+```bash
+[NP-1] feat: add method to calc orders count
+```
+
 ### Examples
 
 [Angular](https://github.com/angular/angular/commits/master)
