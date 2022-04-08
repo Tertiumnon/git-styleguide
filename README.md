@@ -100,7 +100,7 @@ Refresh next `release` (if exists):
 git checkout develop
 git pull
 git checkout release/0.2.0
-git merge release/0.2.0
+git merge develop
 git push
 ```
 
