@@ -4,9 +4,9 @@
 
 ```text
 master - "production" environment
-|_ develop - "preproduction" (test) environment
+|_ develop - "development" environment
   |_ release/0.1.0 - "development" environment
-    |_ NP-1 - "local" environment
+    |_ NP-1 - "development" environment
 ```
 
 All mergings must be made via pull requests!
