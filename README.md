@@ -82,7 +82,7 @@ Or create the tag using UI and then:
 git pull --tags
 ```
 
-### After merging into master
+### After merging hotfix into master
 
 Refresh `develop`:
 
